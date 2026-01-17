@@ -68,7 +68,45 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  // === Supabase Connection ===
+  const supabase = Supabase.createClient(
+    'https://idcmpkpxvhlzmfnvjwo.supabase.co',  // ← Paste your Project URL here
+    'sb_publishable_tzgR...your-full-publishable-key-here'  // ← Paste your Publishable (anon) key here
+  );
+
+  // Form submit handler
+  document.getElementById('registration-form').addEventListener('submit', async function(e) {
+    e.preventDefault();  // Prevent page reload
+
+    const formData = new FormData(this);
+
+    const submission = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      birth_date: formData.get('birthdate'),   // Change to 'birth_date' if your column is named that
+      gender: formData.get('gender'),
+      proficiency: parseInt(formData.get('proficiency')) || 0,
+      terms_agreed: formData.get('terms') ? true : false
+    };
+
+    const { error } = await supabase
+      .from('registrations')
+      .insert([submission]);
+
+    if (error) {
+      alert('Error submitting registration: ' + error.message);
+      console.error(error);
+    } else {
+      alert('Success! Your registration has been saved. We will contact you soon! 🚀');
+      this.reset();  // Clear the form
+    }
+  });
+</script>
 </body>
 
 </html>
+
