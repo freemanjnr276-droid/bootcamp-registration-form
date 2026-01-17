@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bootcamp Registration Form</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Header Banner -->
+    <div class="header-banner">
+      <img src="https://via.placeholder.com/1200x300/000/fff?text=Bootcamp+Banner" alt="Bootcamp Banner" />
+    </div>
+
+    <h1>Bootcamp Registration Form</h1>
+    <p>Complete this form to express your interest in the upcoming web development bootcamp.</p>
+
+    <form id="registration-form">
+      <fieldset>
+        <legend>Contact Details</legend>
+        
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Ophy Boamah" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="ob2@hotmail.com" required />
+
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="+233 200001212" required />
+      </fieldset>
+
+      <fieldset>
+        <legend>Personal Information</legend>
+        
+        <label for="birthdate">Birth Date</label>
+        <input type="date" id="birthdate" name="birthdate" required />
+
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+          <option value="">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </fieldset>
+
+      <fieldset>
+        <legend>Proficiency Level</legend>
+        <label for="proficiency">Proficiency</label>
+        <input type="range" id="proficiency" name="proficiency" min="0" max="100" value="50" />
+        <span id="proficiency-value">50%</span>
+      </fieldset>
+
+      <div class="terms">
+        <label>
+          <input type="checkbox" name="terms" required />
+          I have read and agree to the terms and conditions
+        </label>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Footer Banner -->
+    <div class="footer-banner">
+      <img src="https://via.placeholder.com/1200x200/111/eee?text=Keyboard+Banner" alt="Keyboard Banner" />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
